@@ -2,13 +2,25 @@
 
 This `README.md` contains a set of checklists for our contest collaboration.
 
-Your contest will use two repos: 
+Your contest will use two repos:
+
 - **a _contest_ repo** (this one), which is used for scoping your contest and for providing information to contestants (wardens)
-- **a _findings_ repo**, where issues are submitted. 
+- **a _findings_ repo**, where issues are submitted.
 
 Ultimately, when we launch the contest, this contest repo will be made public and will contain the smart contracts to be reviewed and all the information needed for contest participants. The findings repo will be made public after the contest is over and your team has mitigated the identified issues.
 
 Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the contest sponsor (⭐️)**.
+
+---
+
+## Marketing details
+
+- https://sherlock.xyz/img/logo.svg
+- @sherlockdefi
+- @evert0x @jack\_\_sanford
+- https://discord.com/invite/MABEWyASkp
+- https://sherlock.xyz
+- We have Watsons doing security work for Sherlock Protocol
 
 ---
 
@@ -31,34 +43,8 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 ---
 
-# ⭐️ Sponsor: Provide marketing details
-
-- [ ] Your logo (URL or add file to this repo - SVG or other vector format preferred)
-- [ ] Your primary Twitter handle
-- [ ] Any other Twitter handles we can/should tag in (e.g. organizers' personal accounts, etc.)
-- [ ] Your Discord URI
-- [ ] Your website
-- [ ] Optional: Do you have any quirks, recurring themes, iconic tweets, community "secret handshake" stuff we could work in? How do your people recognize each other, for example? 
-- [ ] Optional: your logo in Discord emoji format
-
----
-
-# Contest prep
-
-## ⭐️ Sponsor: Contest prep
-- [ ] Make sure your code is thoroughly commented using the [NatSpec format](https://docs.soliditylang.org/en/v0.5.10/natspec-format.html#natspec-format).
-- [ ] Modify the bottom of this `README.md` file to describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the C4 Wardens should keep in mind when reviewing. ([Here's a well-constructed example.](https://github.com/code-423n4/2021-06-gro/blob/main/README.md))
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 8 hours prior to contest start time.**
-- [ ] Ensure that you have access to the _findings_ repo where issues will be submitted.
-- [ ] Promote the contest on Twitter (optional: tag in relevant protocols, etc.)
-- [ ] Share it with your own communities (blog, Discord, Telegram, email newsletters, etc.)
-- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] Designate someone (or a team of people) to monitor DMs & questions in the C4 Discord (**#questions** channel) daily (Note: please *don't* discuss issues submitted by wardens in an open channel, as this could give hints to other wardens.)
-- [ ] Delete this checklist and all text above the line below when you're ready.
-
----
-
 # Sherlock contest details
+
 - $76,000 worth of ETH main award pot
 - $4,000 worth of ETH gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
@@ -70,3 +56,31 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 This repo will be made public before the start of the contest. (C4 delete this line when made public)
 
 [ ⭐️ SPONSORS ADD INFO HERE ]
+
+Code can also be viewed at https://github.com/sherlock-protocol/sherlock-v2-core @ `25b0897c236a`
+
+Docs are available at https://docs.sherlock.xyz
+
+An audit has been performed on `8ae51c5a2ec`, (unaudited) fixes have been included up until `4f022062a502`
+
+## Areas of concern
+
+- Previous audit fixes have not been re-audited
+- This PR has been included in `Sherlock.sol` after the audit https://github.com/sherlock-protocol/sherlock-v2-core/pull/7/files
+- `SherBuy.sol` is unaudited
+- `SherClaim.sol` is unaudited
+
+## Contracts
+
+> Lines are calculated using `solidity-coverage`
+
+| Contract                               | Lines | Info                                             |
+| -------------------------------------- | ----- | ------------------------------------------------ |
+| `Sherlock.sol`                         | 152   | Main contract using ERC721                       |
+| `managers/AaveV2Strategy.sol`          | 28    | Contract to move stakers funds to AaveV2         |
+| `managers/Manager.sol`                 | 14    | Abstract contract used by all managers           |
+| `managers/SherDistributionManager.sol` | 27    | Contract for SHER incentives                     |
+| `managers/SherlockClaimManager.sol`    | 155   | Using UMA to handle payouts                      |
+| `managers/SherlockProtocolManager.sol` | 179   | Managing protocol coverage and protocol payments |
+| `SherBuy.sol`                          | 39    | Standalone contract together with `SherClaim`    |
+| `SherClaim.sol`                        | 18    | Standalone contract together with `SherBuy`      |
