@@ -1,6 +1,6 @@
 # Sherlock contest details
 
-- $72,000 USDC main award pot
+- $68,000 USDC main award pot
 - $4,000 USDC gas optimization award pot
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2022-01-sherlock-contest/submit)
